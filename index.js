@@ -17,32 +17,28 @@ const fs          = require('fs');
 const files       = require('./lib/files');
 const questions   = require('./lib/questions');
 
-// call : question.projectName
-
 // Clear terminal
 clear();
 
 // Init cli head
-console.log(
-  chalk.yellow(
-    figlet.textSync('|WASA-Builder|', { horizontalLayout: 'full' })
-  ),
-  chalk.cyan(
-    "Welcome to the Wasa Builder. Let's initiliaze together your boilerplate :) !"
-  )
-);
+console.log(chalk.yellow(figlet.textSync('|WASA-Builder|', { horizontalLayout: 'full' })));
+console.log(chalk.cyan("Welcome to the Wasa Builder. Let's initiliaze together your boilerplate !"));
 
 //  Check if already in git repo
 if (files.directoryExists('.git')) {
-  console.log(chalk.red('You are already inside a git repository. Do you wish to proceed ?'));
-  //process.exit();
+  questions.gitDetected(function() {
+    const gitDetected = arguments[0].gitDetected;
+    if (gitDetected == "yes") {
+      console.log('yes');
+    } else {
+      process.exit();
+    }
+  });
 };
 
-// Call questions
-console.log(questions);
-questions.projectName(function(){
-  const projectName = arguments[0].projectName;
-  questions.projectLocation(projectName, () => {
-    console.log(arguments);
-  });
-});
+// questions.projectName(() => {
+//  const projectName = arguments[0].projectName.toLowerCase();
+//  questions.projectLocation(projectName, () => {
+//    console.log(arguments);
+//  });
+// });
