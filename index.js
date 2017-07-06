@@ -51,7 +51,15 @@ if (files.directoryExists('.git')) {
       }
       const repoExists = arguments[0].repoExists;
       console.log(`Location is ${projectLocation}`);
-      console.log(`Git repo is ${repoExists}`);
+      console.log(`Git answer is ${repoExists}`);
+      if (repoExists == 1) {
+        questions.gitRepo(function(){
+          const gitRepo = arguments[0].gitRepo;
+          git.clone(gitRepo, projectLocation);
+        });
+      } else {
+        fs.mkdirSync(projectLocation);
+      }
     })
   });
 }
