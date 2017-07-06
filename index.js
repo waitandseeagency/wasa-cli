@@ -21,6 +21,7 @@ const download  = require('download-git-repo')
 const files     = require('./lib/files');
 const questions = require('./lib/questions');
 
+
 // Declaring global variables
 let projectName;
 let projectLocation;
@@ -55,23 +56,33 @@ if (files.directoryExists('.git')) {
         projectLocation = arguments[0].projectLocation;
       }
       const repoExists = arguments[0].repoExists;
-      console.log(`Location is ${projectLocation}`);
-      console.log(`Git answer is ${repoExists}`);
       if (repoExists == 1) {
         questions.gitRepo(function(){
           const gitRepo = arguments[0].gitRepo;
           // clone desired repository
-          git.clone(gitRepo, projectLocation);
-          // download and extract boilerplate package
-          download('nothaldir/Portfolio', `${projectLocation}/`, function (err) {
-            console.log(err ? 'Error' : 'Success')
-          })
-        });
+          const status = new Spinner('Cloning repository, please wait...');
+          status.start();
+          git.clone(gitRepo, projectLocation).exec(function(){
+            status.stop();
+            dlBoilerplate(projectName);
+          });
+        })
       } else {
         fs.mkdirSync(projectLocation);
+        dlBoilerplate(projectName);
       }
     })
   });
 }
 
-// zip adress : https://github.com/nothaldir/Portfolio/archive/master.zip
+const dlBoilerplate = (projectName) => {
+  console.log(chalk.blue.bold('We will now download the boilerplate'));
+  setTimeout(() => {
+    const status = new Spinner('Downloading boilerplate, please wait...');
+    status.start();
+    download('nothaldir/Portfolio', `${projectLocation}/`, function (err) {
+      status.stop();
+      console.log(err ? 'Error' : 'Success');
+    });
+  }, 2000)
+};
