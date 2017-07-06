@@ -25,6 +25,7 @@ console.log(chalk.yellow(figlet.textSync('|WASA-Builder|', {horizontalLayout: 'f
 console.log(chalk.cyan('Welcome to the Wasa Builder. Let\'s initiliaze together your boilerplate !'));
 
 let projectName;
+let projectLocation;
 
 //  Check if already in git repo
 if (files.directoryExists('.git')) {
@@ -42,8 +43,15 @@ if (files.directoryExists('.git')) {
 } else {
   questions.projectName(function() {
     projectName = arguments[0].projectName.toLowerCase();
-    questions.projectQuestions(projectName, () => {
-      console.log(arguments);
+    questions.projectQuestions(function() {
+      if (arguments[0].projectLocation.length == 0) {
+        projectLocation = projectName;
+      } else {
+        projectLocation = arguments[0].projectLocation;
+      }
+      const repoExists = arguments[0].repoExists;
+      console.log(`Location is ${projectLocation}`);
+      console.log(`Git repo is ${repoExists}`);
     })
   });
 }
