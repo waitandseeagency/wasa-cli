@@ -24,7 +24,7 @@ const questions = require('./lib/questions');
 // Declaring global variables
 let gitDetected;
 let projectName;
-let projectLocation;
+let projectDirectory;
 
 // Clear terminal
 clear();
@@ -65,14 +65,19 @@ const askProjectName = () => {
 
 // Ask project location
 const askProjectLocation = () => {
-  questions.projectLocation((projectName), () => {
-    // if (arguments[0].projectLocation.length == 0) {
-    //   // if input empty then default is project name
-    //   projectLocation = projectName;
-    // } else {
-    //   projectLocation = arguments[0].projectLocation;
-    // }
-    console.log(arguments);
+  questions.projectDirectory(function() {
+    if (arguments[0].projectDirectory.length == 0 && files.directoryExists(projectName)) {
+      console.log('state 1');
+     // if input empty but directory already exists then reboot function
+     askProjectLocation();
+   } else if (arguments[0].projectDirectory.length == 0) {
+     console.log('state 2');
+     projectDirectory = projectName;
+   } else {
+     console.log('state 3');
+     projectDirectory = arguments[0].projectDirectory;
+    }
+    console.log(`project directory is ${projectDirectory}`);
     if (gitDetected) {
       // if git detected skip add repo
       dlBoilerplate(projectName);
@@ -88,7 +93,7 @@ const askProjectGit = () => {
     if (arguments[0].projectGit == 1) {
       askGitRepo();
     } else {
-      fs.mkdirSync(projectLocation);
+      fs.mkdirSync(projectDirectory);
       dlBoilerplate(projectName);
     }
   })
@@ -101,7 +106,7 @@ const askGitRepo = () => {
     // clone desired repository
     const status = new Spinner('Cloning repository, please wait...');
     status.start();
-    git.clone(gitRepo, projectLocation).exec(function(){
+    git.clone(gitRepo, projectDirectory).exec(function(){
       status.stop();
       dlBoilerplate(projectName);
     });
@@ -114,7 +119,7 @@ const dlBoilerplate = (projectName) => {
   setTimeout(() => {
     const status = new Spinner('Downloading boilerplate, please wait...');
     status.start();
-    download('waitandseeagency/wasa-boilerplate', `${projectLocation}/`, function (err) {
+    download('waitandseeagency/wasa-boilerplate', `${projectDirectory}/`, function (err) {
       status.stop();
       console.log(err ? 'Error' : 'Success');
     });
