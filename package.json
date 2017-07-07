@@ -29,12 +29,10 @@
     "clui": "^0.3.1",
     "download-git-repo": "^1.0.1",
     "figlet": "^1.1.2",
-    "github": "^2.1.0",
     "inquirer": "^1.1.0",
     "is-git-url": "^1.0.0",
     "lodash": "^4.13.1",
     "minimist": "^1.2.0",
-    "preferences": "^0.2.1",
     "simple-git": "^1.40.0",
     "touch": "^1.0.0"
   },
