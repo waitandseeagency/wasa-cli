@@ -65,29 +65,17 @@ const askProjectName = () => {
 // Ask project location
 const askProjectDirectory = () => {
   questions.projectDirectory(projectName, function() {
-    console.log(arguments);
-    if (arguments[0].projectDirectory.length == 0 && files.directoryExists(projectName)) {
-      // if input empty but directory already exists then reboot function
-      console.log(`${chalk.red('>>')} There is already a directory named ${projectName}.`);
-      askProjectDirectory();
-    } else if (arguments[0].projectDirectory.length == 0) {
+    if (arguments[0].projectDirectory.length == 0) {
       projectDirectory = projectName;
-      console.log('You project will be installed in the directory ' + chalk.blue.bold('./') + chalk.blue.bold(projectDirectory));
-      if (gitDetected) {
-        // if git detected skip add repo
-        dlBoilerplate(projectName);
-      } else {
-        askProjectGit();
-      }
     } else {
       projectDirectory = arguments[0].projectDirectory;
-      console.log('You project will be installed in the directory' + chalk.blue.bold('./') + chalk.blue.bold(projectDirectory));
-      if (gitDetected) {
-        // if git detected skip add repo
-        dlBoilerplate(projectName);
-      } else {
-        askProjectGit();
-      }
+    }
+    console.log('You project will be installed in the directory' + chalk.blue.bold('./') + chalk.blue.bold(projectDirectory));
+    if (gitDetected) {
+      // if git detected skip add repo
+      dlBoilerplate();
+    } else {
+      askProjectGit();
     }
   })
 }
@@ -99,7 +87,7 @@ const askProjectGit = () => {
       askGitRepo();
     } else {
       fs.mkdirSync(projectDirectory);
-      dlBoilerplate(projectName);
+      dlBoilerplate();
     }
   })
 }
@@ -114,13 +102,13 @@ const askGitRepo = () => {
     git.clone(gitRepo, projectDirectory).exec(function() {
       status.stop();
       console.log('Repository successfully cloned.');
-      dlBoilerplate(projectName);
+      dlBoilerplate();
     });
   })
 }
 
 // W&S Agency Boilerplate Download
-const dlBoilerplate = (projectName) => {
+const dlBoilerplate = () => {
   console.log(chalk.blue.bold('We will now download the WASA Boilerplate.'));
   setTimeout(() => {
     const status = new Spinner('Downloading boilerplate, please wait...');
