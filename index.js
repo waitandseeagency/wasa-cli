@@ -64,7 +64,8 @@ const askProjectName = () => {
 
 // Ask project location
 const askProjectDirectory = () => {
-  questions.projectDirectory(function() {
+  questions.projectDirectory(projectName, function() {
+    console.log(arguments);
     if (arguments[0].projectDirectory.length == 0 && files.directoryExists(projectName)) {
       // if input empty but directory already exists then reboot function
       console.log(`${chalk.red('>>')} There is already a directory named ${projectName}.`);
