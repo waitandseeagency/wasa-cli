@@ -14,6 +14,7 @@ const git = require('simple-git')();
 const touch = require('touch');
 const fs = require('fs');
 const download = require('download-git-repo')
+const shell = require('shelljs')
 
 // Files imports
 const files = require('./lib/files');
@@ -70,7 +71,7 @@ const askProjectDirectory = () => {
     } else {
       projectDirectory = arguments[0].projectDirectory;
     }
-    console.log('You project will be installed in the directory' + chalk.blue.bold('./') + chalk.blue.bold(projectDirectory));
+    console.log('You project will be installed in the directory ' + chalk.blue.bold('./') + chalk.blue.bold(projectDirectory));
     if (gitDetected) {
       // if git detected skip add repo
       dlBoilerplate();
@@ -97,7 +98,7 @@ const askGitRepo = () => {
   questions.gitRepo(function() {
     const gitRepo = arguments[0].gitRepo;
     // clone desired repository
-    const status = new Spinner('Cloning repository, please wait...');
+    const status = new Spinner(chalk.white('Cloning repository, please wait...'));
     status.start();
     git.clone(gitRepo, projectDirectory).exec(function() {
       status.stop();
@@ -111,15 +112,38 @@ const askGitRepo = () => {
 const dlBoilerplate = () => {
   console.log(chalk.blue.bold('We will now download the WASA Boilerplate.'));
   setTimeout(() => {
-    const status = new Spinner('Downloading boilerplate, please wait...');
+    const status = new Spinner(chalk.white('Downloading boilerplate, please wait...'));
     status.start();
     download('waitandseeagency/wasa-boilerplate', `${projectDirectory}/`, function(err) {
       status.stop();
-      console.log(err
-        ? 'Error'
-        : 'We successfully downloaded the WASA Boilerplate, you\'re all set up :) !');
+      if (err) {
+        console.log('An error occured.');
+      } else {
+        console.log('We successfully downloaded the WASA Boilerplate.');
+        initDependencies();
+      }
     });
   }, 2000)
+}
+
+const initDependencies = () => {
+  const current = process.cwd();
+  try {
+    process.chdir(current+'/'+projectDirectory);
+  }
+  catch (err) {
+    console.log('chdir: ' + err);
+  }
+  console.log(chalk.blue.bold('We will know install the dependencies'));
+  setTimeout(() => {
+    if (shell.exec('npm install').code !== 0) {
+      shell.echo('Error: npm install failed');
+      shell.exit(1);
+    } else {
+      console.log('Dependencies successfully installed, you\'re all set !');
+    }
+  })
+  
 }
 
 // Start wasa-cli
