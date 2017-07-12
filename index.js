@@ -137,13 +137,27 @@ const initDependencies = () => {
   console.log(chalk.blue.bold('We will know install the dependencies'));
   setTimeout(() => {
     if (shell.exec('npm install').code !== 0) {
-      shell.echo('Error: npm install failed');
+      shell.echo('Error: npm install failed :/ !');
       shell.exit(1);
     } else {
-      console.log('Dependencies successfully installed, you\'re all set !');
+      console.log('Dependencies successfully installed.');
+      updateProject();
     }
   })
-  
+}
+
+const updateProject = () => {
+  console.log(chalk.blue.bold('We are now making the final touches!'));
+  fs.readFile('package.json', 'utf-8', function(err, data){
+    if (err) throw err;
+
+    const newValue = data.replace(/"name": "wasa-boilerplate"/g, `"name": "${projectName}"`);
+
+    fs.writeFile('package.json', newValue, 'utf-8', function (err) {
+      if (err) throw err;
+      console.log('filelistAsync complete');
+    });
+  });
 }
 
 // Start wasa-cli
