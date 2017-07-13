@@ -13,8 +13,9 @@ const _ = require('lodash');
 const git = require('simple-git')();
 const touch = require('touch');
 const fs = require('fs');
-const download = require('download-git-repo')
-const shell = require('shelljs')
+const download = require('download-git-repo');
+const shell = require('shelljs');
+const username = require('git-user-name');
 
 // Files imports
 const files = require('./lib/files');
@@ -134,7 +135,7 @@ const initDependencies = () => {
   catch (err) {
     console.log('chdir: ' + err);
   }
-  console.log(chalk.blue.bold('We will know install the dependencies'));
+  console.log(chalk.blue.bold('We will know install the dependencies.'));
   setTimeout(() => {
     if (shell.exec('npm install').code !== 0) {
       shell.echo('Error: npm install failed :/ !');
@@ -151,7 +152,9 @@ const updateProject = () => {
   fs.readFile('package.json', 'utf-8', function(err, data){
     if (err) throw err;
 
-    const newValue = data.replace(/"name": "wasa-boilerplate"/g, `"name": "${projectName}"`);
+    const newValue = data
+      .replace(/"name": "wasa-boilerplate"/g, `"name": "${projectName}"`)
+      .replace(/"author": "Wait And See Agency"/g, `"name": "${username()}"`);
 
     fs.writeFile('package.json', newValue, 'utf-8', function (err) {
       if (err) throw err;
