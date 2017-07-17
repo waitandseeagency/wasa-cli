@@ -135,7 +135,7 @@ const initDependencies = () => {
   catch (err) {
     console.log('chdir: ' + err);
   }
-  console.log(chalk.blue.bold('We will know install the dependencies.'));
+  console.log(chalk.blue.bold('We will know install the dependencies. This might take a moment, please wait.'));
   setTimeout(() => {
     if (shell.exec('npm install').code !== 0) {
       shell.echo('Error: npm install failed :/ !');
@@ -149,18 +149,26 @@ const initDependencies = () => {
 
 const updateProject = () => {
   console.log(chalk.blue.bold('We are now making the final touches!'));
-  fs.readFile('package.json', 'utf-8', function(err, data){
-    if (err) throw err;
-
-    const newValue = data
+  const status = new Spinner(chalk.white('Please wait...'));
+  status.start();
+  setTimeout(() => {
+    fs.readFile('package.json', 'utf-8', function(err, data){
+      if (err) throw err;
+      
+      const newValue = data
       .replace(/"name": "wasa-boilerplate"/g, `"name": "${projectName}"`)
       .replace(/"author": "Wait And See Agency"/g, `"author": "${username()}"`);
-
-    fs.writeFile('package.json', newValue, 'utf-8', function (err) {
-      if (err) throw err;
-      console.log('Project install complete, you\'re all set !');
+      
+      fs.writeFile('package.json', newValue, 'utf-8', function (err) {
+        if (err) {
+          throw err;
+        } else {
+          status.stop();
+          console.log('Project install complete, you\'re all set !');
+        }
+      });
     });
-  });
+  }, 1000);
 }
 
 // Start wasa-cli
