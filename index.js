@@ -70,7 +70,7 @@ const askProjectDirectory = () => {
     if (arguments[0].projectDirectory.length == 0) {
       projectDirectory = projectName;
     } else {
-      projectDirectory = arguments[0].projectDirectory;
+      projectDirectory = arguments[0].projectDirectory.toLowerCase();
     }
     console.log('You project will be installed in the directory ' + chalk.blue.bold('./') + chalk.blue.bold(projectDirectory));
     if (gitDetected) {
