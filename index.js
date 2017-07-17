@@ -115,7 +115,7 @@ const dlBoilerplate = () => {
   setTimeout(() => {
     const status = new Spinner(chalk.white('Downloading boilerplate, please wait...'));
     status.start();
-    download('waitandseeagency/wasa-boilerplate', `${projectDirectory}/`, function(err) {
+    download('waitandseeagency/wasa-boilerplate#dev', `${projectDirectory}/`, function(err) {
       status.stop();
       if (err) {
         console.log('An error occured.');
@@ -154,11 +154,11 @@ const updateProject = () => {
 
     const newValue = data
       .replace(/"name": "wasa-boilerplate"/g, `"name": "${projectName}"`)
-      .replace(/"author": "Wait And See Agency"/g, `"name": "${username()}"`);
+      .replace(/"author": "Wait And See Agency"/g, `"author": "${username()}"`);
 
     fs.writeFile('package.json', newValue, 'utf-8', function (err) {
       if (err) throw err;
-      console.log('filelistAsync complete');
+      console.log('Project install complete, you\'re all set !');
     });
   });
 }
