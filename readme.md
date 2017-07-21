@@ -15,7 +15,7 @@ WASA CLI is a tool to **automate the installation** of the <a href="https://gith
 
 With the WASA CLI, you can **initialize a new front-end project** in less than five minutes (*unless you have a really, really bad internet connection*), with no complication.
 
-![Peek recording itself](https://raw.githubusercontent.com/waitandseeagency/wasa-cli/gh-pages/wasa-cli.gif)
+![cli gif](https://raw.githubusercontent.com/waitandseeagency/wasa-cli/gh-pages/wasa-cli.gif)
 
 
 #### WASA Boilerplate
@@ -27,14 +27,17 @@ The WASA Boilerplate is a simple and ready-to-go front-end boilerplate. It uses 
 
 ## Installation
 There are two ways to install the WASA CLI:
-1. ###### (Recommended) global install:
+
+###### 1. (Recommended) global install:
 ```
 npm i -g @waitandsee/wasa-cli
 ``` 
+
 If you need root access, run instead: `sudo npm i -g @waitandsee/wasa-cli`
-2. ###### Local install and then with an alias:
-  1. Installation: `npm i @waitandsee/wasa-cli`
-  2. Alias creation: e.g. `alias wasa="node ~/wasa-cli/index.js"`
+
+###### 2. Local install and then with an alias:
+  - Installation: `npm i @waitandsee/wasa-cli`
+  - Alias creation: e.g. `alias wasa="node ~/wasa-cli/index.js"`
 
 ## Usage
 ##### To initialiaze a project, simply type:
