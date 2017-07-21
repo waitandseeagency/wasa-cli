@@ -1,6 +1,6 @@
 {
   "name": "@waitandsee/wasa-cli",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "wasa-cli to automate wasa-boilerplate install",
   "main": "index.js",
   "scripts": {
