@@ -1,4 +1,5 @@
 # WASA CLI
+
 <table>
   <tr>
     <td>
@@ -8,6 +9,7 @@
   </td>
   </tr>
 </table>
+
 #### Introduction
 WASA CLI is a tool to **automate the installation** of the <a href="https://github.com/waitandseeagency/wasa-boilerplate/">WASA Boilerplate</a>. Upon initialization, **a series of questions** will be asked (e.g. the name of the project, its location, its git repository), and then will **download the WASA Boilerplate**. 
 
