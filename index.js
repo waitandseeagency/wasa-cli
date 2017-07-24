@@ -115,7 +115,7 @@ const dlBoilerplate = () => {
   setTimeout(() => {
     const status = new Spinner(chalk.white('Downloading boilerplate, please wait...'));
     status.start();
-    download('waitandseeagency/wasa-boilerplate#dev', `${projectDirectory}/`, function(err) {
+    download('waitandseeagency/wasa-boilerplate', `${projectDirectory}/`, function(err) {
       status.stop();
       if (err) {
         console.log('An error occured.');
@@ -137,7 +137,7 @@ const initDependencies = () => {
   }
   console.log(chalk.blue.bold('We will know install the dependencies. This might take a moment, please wait.'));
   setTimeout(() => {
-    if (shell.exec('npm install').code !== 0) {
+    if (shell.exec('npm install --silent').code !== 0) {
       shell.echo('Error: npm install failed :/ !');
       shell.exit(1);
     } else {
