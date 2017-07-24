@@ -135,7 +135,7 @@ const initDependencies = () => {
   catch (err) {
     console.log('chdir: ' + err);
   }
-  console.log(chalk.blue.bold('We will know install the dependencies. This might take a moment, please wait.'));
+  console.log(chalk.blue.bold('We will now install the dependencies. This might take a moment, please wait.'));
   setTimeout(() => {
     if (shell.exec('npm install --silent').code !== 0) {
       shell.echo('Error: npm install failed :/ !');
