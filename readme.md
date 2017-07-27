@@ -44,3 +44,6 @@ If you need root access, run instead: `sudo npm i -g @waitandsee/wasa-cli`
 ```
 wasa
 ```
+
+## Documentation
+Upon initialization, you will find all the information relative to the boilerplate in the `readme.md` file.
