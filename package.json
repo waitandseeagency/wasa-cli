@@ -41,6 +41,13 @@
     "simple-git": "^1.40.0",
     "touch": "^1.0.0"
   },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint-plugin-import": "^2.7.0"
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
@@ -51,6 +58,5 @@
   },
   "directories": {
     "lib": "lib"
-  },
-  "devDependencies": {}
+  }
 }
