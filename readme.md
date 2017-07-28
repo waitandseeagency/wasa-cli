@@ -1,5 +1,14 @@
 # WASA CLI
 
+[![npm version](https://badge.fury.io/js/%40waitandsee%2Fwasa-cli.svg)](https://badge.fury.io/js/%40waitandsee%2Fwasa-cli)
+[![Build Status](https://travis-ci.org/waitandseeagency/wasa-cli.svg?branch=master)](https://travis-ci.org/waitandseeagency/wasa-cli)
+[![node](https://img.shields.io/badge/node->6.4.0-brightgreen.svg)]()
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-blue.svg)](http://commitizen.github.io/cz-cli/)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-blue.svg)](https://conventionalcommits.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+[![wasa-boilerplate version](https://img.shields.io/badge/wasa--boilerplate-v1.0.0--beta.1-e6555a.svg)](https://github.com/waitandseeagency/wasa-boilerplate)
+
 <table>
   <tr>
     <td>
