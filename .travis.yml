@@ -4,3 +4,7 @@ node_js:
   - "6.11"
   - "7"
   - "node"
+notifications:
+  email: false
+script:
+  - npm run lint
