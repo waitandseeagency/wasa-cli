@@ -22,13 +22,13 @@
 #### Introduction
 WASA CLI is a tool to **automate the installation** of the <a href="https://github.com/waitandseeagency/wasa-boilerplate/">WASA Boilerplate</a>. Upon initialization, **a series of questions** will be asked (e.g. the name of the project, its location, its git repository), and then will **download the WASA Boilerplate**. 
 
-With the WASA CLI, you can **initialize a new front-end project** in less than five minutes (*unless you have a really, really bad internet connection*), with no complication.
+With the WASA CLI, you can **initialize a new front-end project** in less than five minutes (*unless you have a really, really bad internet connection*), without any complication.
 
 ![cli gif](https://raw.githubusercontent.com/waitandseeagency/wasa-cli/gh-pages/wasa-cli.gif)
 
 
 #### WASA Boilerplate
-The WASA Boilerplate is a simple and ready-to-go front-end boilerplate. It uses **Babel** to compile you ES6, **Pug** for the HTML, and **node-sass** with **csss-next** for your SCSS. And the best thing is : no need of gulp or webpack, everything is done thanks to the power of the NPM Scripts !
+The WASA Boilerplate is a simple and ready-to-go front-end boilerplate. It uses **Babel** to compile your ES6, **Pug** for the HTML, and **node-sass** with **css-next** for your SCSS. And the best thing is : no need of gulp or webpack, everything is done thanks to the power of NPM Scripts !
 
 
 ## Requirements
