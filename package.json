@@ -1,6 +1,6 @@
 {
   "name": "@waitandsee/wasa-cli",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.5",
   "description": "wasa-cli to automate wasa-boilerplate install",
   "main": "index.js",
   "scripts": {
@@ -26,24 +26,22 @@
   },
   "homepage": "https://github.com/waitandseeagency/wasa-cli#readme",
   "dependencies": {
-    "chalk": "^1.1.3",
+    "chalk": "^2.1.0",
     "clear": "0.0.1",
     "clui": "^0.3.1",
+    "commander": "^2.11.0",
     "cz-conventional-changelog": "^2.0.0",
     "download-git-repo": "^1.0.1",
     "figlet": "^1.1.2",
     "git-user-name": "^1.2.0",
     "inquirer": "^1.1.0",
     "is-git-url": "^1.0.0",
-    "lodash": "^4.13.1",
-    "minimist": "^1.2.0",
     "shelljs": "^0.7.8",
-    "simple-git": "^1.40.0",
-    "touch": "^1.0.0"
+    "simple-git": "^1.40.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "eslint": "^4.3.0",
+    "eslint": "^4.5.0",
     "eslint-config-airbnb-base": "^11.3.1",
     "eslint-plugin-flowtype": "^2.35.0",
     "eslint-plugin-import": "^2.7.0"

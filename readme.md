@@ -1,5 +1,14 @@
 # WASA CLI
 
+[![npm version](https://badge.fury.io/js/%40waitandsee%2Fwasa-cli.svg)](https://badge.fury.io/js/%40waitandsee%2Fwasa-cli)
+[![Build Status](https://travis-ci.org/waitandseeagency/wasa-cli.svg?branch=master)](https://travis-ci.org/waitandseeagency/wasa-cli)
+[![node](https://img.shields.io/badge/node->6.4.0-brightgreen.svg)]()
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-blue.svg)](http://commitizen.github.io/cz-cli/)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-blue.svg)](https://conventionalcommits.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+[![wasa-boilerplate version](https://img.shields.io/badge/wasa--boilerplate-v1.0.0--beta.1-e6555a.svg)](https://github.com/waitandseeagency/wasa-boilerplate)
+
 <table>
   <tr>
     <td>
@@ -13,13 +22,13 @@
 #### Introduction
 WASA CLI is a tool to **automate the installation** of the <a href="https://github.com/waitandseeagency/wasa-boilerplate/">WASA Boilerplate</a>. Upon initialization, **a series of questions** will be asked (e.g. the name of the project, its location, its git repository), and then will **download the WASA Boilerplate**. 
 
-With the WASA CLI, you can **initialize a new front-end project** in less than five minutes (*unless you have a really, really bad internet connection*), with no complication.
+With the WASA CLI, you can **initialize a new front-end project** in less than five minutes (*unless you have a really, really bad internet connection*), without any complication.
 
 ![cli gif](https://raw.githubusercontent.com/waitandseeagency/wasa-cli/gh-pages/wasa-cli.gif)
 
 
 #### WASA Boilerplate
-The WASA Boilerplate is a simple and ready-to-go front-end boilerplate. It uses **Babel** to compile you ES6, **Pug** for the HTML, and **node-sass** with **csss-next** for your SCSS. And the best thing is : no need of gulp or webpack, everything is done thanks to the power of the NPM Scripts !
+The WASA Boilerplate is a simple and ready-to-go front-end boilerplate. It uses **Babel** to compile your ES6, **Pug** for the HTML, and **node-sass** with **css-next** for your SCSS. And the best thing is : no need of gulp or webpack, everything is done thanks to the power of NPM Scripts !
 
 
 ## Requirements
