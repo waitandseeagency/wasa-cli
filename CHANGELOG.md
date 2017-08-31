@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.5"></a>
+# [1.0.0-beta.5](https://github.com/waitandseeagency/wasa-cli/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2017-08-31)
+
+
+### Features
+
+* **commander:** add program manager + help + refactor ES6 Class ([9aad859](https://github.com/waitandseeagency/wasa-cli/commit/9aad859))
+
+
+
 <a name="1.0.0-beta.4"></a>
 # [1.0.0-beta.4](https://github.com/waitandseeagency/wasa-cli/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2017-07-28)
 
