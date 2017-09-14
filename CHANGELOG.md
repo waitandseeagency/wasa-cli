@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.6"></a>
+# [1.0.0-beta.6](https://github.com/waitandseeagency/wasa-cli/compare/v1.0.0-beta.5...v1.0.0-beta.6) (2017-09-14)
+
+
+### Bug Fixes
+
+* **questions:** update regex rule and validation for project name ([f1ac9ed](https://github.com/waitandseeagency/wasa-cli/commit/f1ac9ed))
+
+
+### Features
+
+* **cli:** add alias for init command ([96d08d6](https://github.com/waitandseeagency/wasa-cli/commit/96d08d6))
+
+
+
 <a name="1.0.0-beta.5"></a>
 # [1.0.0-beta.5](https://github.com/waitandseeagency/wasa-cli/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2017-08-31)
 
