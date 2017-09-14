@@ -18,6 +18,7 @@ program
 program
   // .help(false)
   .command('init [projectName]')
+  .alias('i')
   .description('Initiliaze the project, with directly project name if wanted')
   .option('-G, --gulp', 'Used Gulp system instead of manual npm scripts')
   .option('-f, --force', 'Force the installation regardless of the folder\'s state')
